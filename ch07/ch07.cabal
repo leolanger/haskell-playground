@@ -1,8 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.2.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
+--
+-- hash: ff1e1197b2411a4610470221ab86272d2de941e3a0416768c4e869b1601276fa
 
 name:           ch07
 version:        0.1.0.0
@@ -25,18 +27,26 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Geometry
+      Geometry.Cuboid
+      Geometry.Cube
+      Geometry.Sphered
   other-modules:
+      Lib
       Paths_ch07
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , containers
   default-language: Haskell2010
 
 executable ch07-exe
   main-is: Main.hs
   other-modules:
+      Geometry.Cube
+      Geometry.Cuboid
+      Geometry.Sphere
       Paths_ch07
   hs-source-dirs:
       app
@@ -44,6 +54,7 @@ executable ch07-exe
   build-depends:
       base >=4.7 && <5
     , ch07
+    , containers
   default-language: Haskell2010
 
 test-suite ch07-test
@@ -57,4 +68,5 @@ test-suite ch07-test
   build-depends:
       base >=4.7 && <5
     , ch07
+    , containers
   default-language: Haskell2010

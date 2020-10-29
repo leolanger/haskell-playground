@@ -25,6 +25,11 @@ dependencies:
 
 library:
   source-dirs: src
+  exposed-modules:
+  - Geometry
+  - Geometry.Cuboid
+  - Geometry.Cube
+  - Geometry.Sphered
 
 executables:
   ch07-exe:
