@@ -1,6 +1,6 @@
+import Control.Monad (when)
 import Data.List
 import System.Random
-import Control.Monad(when)
 
 threeCoins :: StdGen -> (Bool, Bool, Bool)
 threeCoins gen =
@@ -59,7 +59,6 @@ finiteRandoms n gen =
 --   gen' <- newStdGen
 --   putStr $ take 20 (randomRs ('a', 'z') gen')
 
-
 -- main = do
 --     gen <- getStdGen
 --     askForNumber gen
@@ -88,4 +87,3 @@ main = do
       else putStrLn $ "Sorry, it was " ++ show randNumber
     newStdGen
     main
-

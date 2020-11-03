@@ -1,0 +1,65 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 0ff6ea2e061f00ab382d4ecddb2f79a80c79cc6b8d62c599c2b1f40b2265707c
+
+name:           monoids
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/monoids#readme>
+homepage:       https://github.com/githubuser/monoids#readme
+bug-reports:    https://github.com/githubuser/monoids/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/monoids
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_monoids
+  hs-source-dirs:
+      src
+  build-depends:
+      Foldable
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+executable monoids-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_monoids
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Foldable
+    , base >=4.7 && <5
+    , monoids
+  default-language: Haskell2010
+
+test-suite monoids-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_monoids
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Foldable
+    , base >=4.7 && <5
+    , monoids
+  default-language: Haskell2010
