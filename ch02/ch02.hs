@@ -1,3 +1,12 @@
+main :: IO ()
+main = do
+  print $ doubleMe 5
+  print $ doubleUs 4 5
+  print $ doubleSmallNumber' 54
+  print $ boomBangs [1, 2, 3, 4, 5, 6, 7]
+  print $ length' [5, 6, 8, 2, 57, 57, 5, 6]
+  print $ rightTriangles
+
 -- ghci> 5 /= 4
 -- True
 
@@ -56,3 +65,15 @@ length' xs = sum [1 | _ <- xs]
 
 rightTriangles :: [(Integer, Integer, Integer)]
 rightTriangles = [(a, b, c) | c <- [1 .. 10], b <- [1 .. c], a <- [1 .. b], a ^ 2 + b ^ 2 == c ^ 2]
+
+-- $ ghc -o ch02 ch02.hs
+-- [1 of 1] Compiling Main             ( ch02.hs, ch02.o )
+-- Linking ch02 ...
+
+-- $ ./ch02
+-- 10
+-- 18
+-- 109
+-- ["BOOM!","BOOM!","BOOM!","BOOM!"]
+-- 8
+-- [(3,4,5),(6,8,10)]
