@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 989f5c39666b4019adec96468556795290b9a63529473217ad25f84e1cb9fc2c
+-- hash: 21fe5a2acc866194ac44cab7751e540389df0339e05175deca583078136a8491
 
 name:           logic
 version:        0.1.0.0
@@ -29,6 +29,7 @@ library
   exposed-modules:
       Logic
   other-modules:
+      Group
       Paths_logic
   hs-source-dirs:
       src
