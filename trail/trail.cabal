@@ -1,0 +1,65 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 45b137579a6929fac6c0ddf3715eef29133d8426a3f9f0de9b88fa0ee4b5c3c9
+
+name:           trail
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/trail#readme>
+homepage:       https://github.com/githubuser/trail#readme
+bug-reports:    https://github.com/githubuser/trail/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/trail
+
+library
+  exposed-modules:
+      List
+      Algebraic
+  other-modules:
+      Basic
+      PatternMatching
+      Paths_trail
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable trail-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_trail
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , trail
+  default-language: Haskell2010
+
+test-suite trail-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_trail
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , trail
+  default-language: Haskell2010
