@@ -106,3 +106,51 @@ primes :: [Integer]
 primes = sieve [2 ..]
   where
     sieve (p : xs) = p : sieve [n | n <- xs, n `mod` p > 0]
+
+{-Typeclasses-}
+
+-- we can define an equality class which allows us to define an overloaded notion of equality depending on the
+-- data structure provided.
+class Equal a where
+  equal :: a -> a -> Bool
+
+-- we can define this typeclass over several different types.
+
+instance Equal Bool where
+  equal True True = True
+  equal False False = True
+  equal True False = False
+  equal False True = False
+
+instance Equal () where
+  equal () () = True
+
+data Ordering' = LT' | EQ' | GT'
+
+instance Equal Ordering' where
+  equal LT' LT' = True
+  equal EQ' EQ' = True
+  equal GT' GT' = True
+  equal _ _ = False
+
+-- An Equal instance for a more complex data structure relies upon the fact that the type of the elements
+-- in the list must also have a notion of equality,
+
+instance (Equal a) => Equal [a] where
+  equal [] [] = True
+  -- Empty lists are equal
+  equal [] ys = False -- Lists of unequal size are not equal
+  equal xs [] = False
+  -- equal x y is only allowed here due to the constraint (Equal a)
+  equal (x : xs) (y : ys) = equal x y && equal xs ys
+
+instance (Equal a, Equal b) => Equal (a, b) where
+  equal (x0, x1) (y0, y1) = equal x0 y0 && equal x1 y1
+
+-- After the definition of a datatype you can
+-- add a deriving clause which will generate the instances for this datatype automatically.
+
+data List a
+  = Cons a (List a)
+  | Nil
+  deriving (Eq, Ord, Show)
