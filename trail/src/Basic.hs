@@ -1,7 +1,7 @@
 module Basic where
 
 import Data.List
-import Prelude hiding (($), (.))
+import Prelude hiding (head, undefined, (!!), ($), (.))
 
 {-operators and Sections-}
 -- An operator is a function that can be applied using infix syntax or partially applied using a section.
@@ -154,3 +154,45 @@ data List a
   = Cons a (List a)
   | Nil
   deriving (Eq, Ord, Show)
+
+{-Bottoms-}
+
+-- For instance, undefined is an easily called example of a bottom value.
+-- This function has type a but lacks any type constraints in its type signature.
+
+undefined :: a
+undefined = error "Prelude.undefined"
+
+-- mean :: Num a => Vector a -> a     -- Partially defined function
+-- mean nums = (total / count)
+--   where
+--     total = undefined
+--     count = undefined
+
+-- addThreeNums :: Num a => a -> a -> a -> a
+-- addThreeNums n m j = undefined     -- No function body declared at all
+
+-- f :: a -> Complicated Type
+-- f = undefined                      -- Write tomorrow, typecheck today! Arbitrarily complicated types
+
+-- Another example of a bottom value comes from the evaluation of the error function
+
+-- error :: String -> a
+
+-- divByY :: (Num a, Eq a, Fractional a) => a -> a -> a
+-- divByY _ 0 = error "Divide by zero error."
+-- divByY dividend divisor = dividend / divisor
+
+--eg.
+fn :: t
+fn = let x = x in x
+
+head :: [a] -> a
+head (x : _) = x
+head [] = error "Prelude.head: empty list"
+
+(!!) :: [a] -> Int -> a
+xs !! n | n < 0 = error "Prelude.!!: negative index"
+[] !! _ = error "Prelude.!!: index too large"
+(x : _) !! 0 = x
+(_ : xs) !! n = xs !! (n -1)
