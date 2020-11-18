@@ -195,4 +195,4 @@ head [] = error "Prelude.head: empty list"
 xs !! n | n < 0 = error "Prelude.!!: negative index"
 [] !! _ = error "Prelude.!!: index too large"
 (x : _) !! 0 = x
-(_ : xs) !! n = xs !! (n -1)
+(_ : xs) !! n = xs Basic.!! (n -1)

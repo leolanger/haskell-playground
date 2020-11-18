@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 45b137579a6929fac6c0ddf3715eef29133d8426a3f9f0de9b88fa0ee4b5c3c9
+-- hash: 1c4999767fb649791dbb9ef1417d40d4a91c75a2891327bddf04ef29a6575d68
 
 name:           trail
 version:        0.1.0.0
@@ -31,6 +31,7 @@ library
       Algebraic
   other-modules:
       Basic
+      Basic2
       PatternMatching
       Paths_trail
   hs-source-dirs:
