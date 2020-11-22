@@ -4,13 +4,13 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 5d016f8ae284fce18e095eb5885ebf5c45308eed905acd5d76e1dfb1cd5214e0
+-- hash: 4e202aee63aea387c1bd726c4dc84a4f6d208667fed9fe8c3591c944fd04042c
 
-name:           trail
+name:           Monad
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/trail#readme>
-homepage:       https://github.com/githubuser/trail#readme
-bug-reports:    https://github.com/githubuser/trail/issues
+description:    Please see the README on GitHub at <https://github.com/githubuser/Monad#readme>
+homepage:       https://github.com/githubuser/Monad#readme
+bug-reports:    https://github.com/githubuser/Monad/issues
 author:         Author name here
 maintainer:     example@example.com
 copyright:      2020 Author name here
@@ -23,49 +23,40 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/trail
+  location: https://github.com/githubuser/Monad
 
 library
   exposed-modules:
-      List
-      Algebraic
+      Lib
   other-modules:
-      Basic.Basic
-      Basic.Basic2
-      PatternMatching
-      TypeHoles
-      TypeInference
-      Paths_trail
+      Paths_Monad
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
-    , haddock
   default-language: Haskell2010
 
-executable trail-exe
+executable Monad-exe
   main-is: Main.hs
   other-modules:
-      Paths_trail
+      Paths_Monad
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
-    , haddock
-    , trail
+      Monad
+    , base >=4.7 && <5
   default-language: Haskell2010
 
-test-suite trail-test
+test-suite Monad-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Paths_trail
+      Paths_Monad
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
-    , haddock
-    , trail
+      Monad
+    , base >=4.7 && <5
   default-language: Haskell2010
